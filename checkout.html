@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author: Valentin Esparza
+        Date: 8/23/2026
+        Purpose: Checkout page — shipping form, purchase form, and coupon code
+                 discount tool. Validated by js/main.js before allowing order
+                 submission.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — The Gilded Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jsmain.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">THE GILDED PANEL</a>
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Checkout</h1>
+            <form class="stack" id="checkoutForm">
+                <fieldset>
+                    <legend>Shipping Details</legend>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="street">Street Address</label>
+                    <input type="text" id="street" name="street" required>
+
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+
+                    <label for="zip">ZIP Code</label>
+                    <input type="text" id="zip" name="zip" placeholder="12345" required>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="555-555-5555" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Shipping &amp; Insurance</legend>
+                    <label for="shipping">Shipping Tier</label>
+                    <select id="shipping" name="shipping">
+                        <option value="standard">Standard (Insured up to $100)</option>
+                        <option value="premium">Premium (Fully Insured)</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Payment</legend>
+                    <label for="cardName">Cardholder Name</label>
+                    <input type="text" id="cardName" name="cardName" required>
+
+                    <label for="card">Credit Card Number</label>
+                    <input type="text" id="card" name="card" placeholder="16 digits, no spaces" required>
+
+                    <label for="expiration">Expiration Date</label>
+                    <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required>
+
+                    <label for="securityCode">Security Code</label>
+                    <input type="text" id="securityCode" name="securityCode" placeholder="CVV" required>
+
+                    <label for="coupon">Coupon Code</label>
+                    <input type="text" id="coupon" name="coupon">
+                    <button type="button" class="btn" onclick="applyCoupon()">Apply Coupon</button>
+                    <p id="discountResult"></p>
+                </fieldset>
+
+                <button type="submit" class="btn btn-crimson">Place Order</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; <a
+                href="about.html">Contact</a></p>
+    </footer>
+
+</body>
+
+</html>

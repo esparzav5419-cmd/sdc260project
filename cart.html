@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author: Valentin Esparza
+        Date: 8/23/2026
+        Purpose: Cart page — table of items with quantity, price, and subtotal.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — The Gilded Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jsmain.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">THE GILDED PANEL</a>
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Your Cart</h1>
+            <table>
+                <caption>Items in Cart</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    <!-- Cart rows inserted by jsmain.js -->
+                </tbody>
+            </table>
+            <p id="cartTotalDisplay"><strong>Total: $0.00</strong></p>
+
+            <button id="clearCartBtn" class="btn">Clear Cart</button>
+            <a class="btn btn-crimson" href="checkout.html">Proceed to Checkout</a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; <a
+                href="about.html">Contact</a></p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author: Valentin Esparza
+        Date: 8/23/2026
+        Purpose: Shop/Browse page — catalog grid with category and condition filters.
+                 Products are now rendered dynamically via js/main.js.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — The Gilded Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jsmain.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">THE GILDED PANEL</a>
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Shop the Collection</h1>
+
+            <form class="filter-row" aria-label="Filter catalog">
+                <div>
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                        <option value="all">All</option>
+                        <option value="book">Book</option>
+                        <option value="comic">Comic</option>
+                        <option value="graphic-novel">Graphic Novel</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="condition">Condition</label>
+                    <select id="condition" name="condition">
+                        <option value="all">All</option>
+                        <option value="near-mint">Near Mint</option>
+                        <option value="fine">Fine</option>
+                        <option value="very-good">Very Good</option>
+                    </select>
+                </div>
+            </form>
+
+            <!-- Products are rendered dynamically by js/main.js -->
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; <a
+                href="about.html">Contact</a></p>
+    </footer>
+
+</body>
+
+</html>

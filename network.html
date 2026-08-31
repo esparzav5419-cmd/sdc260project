@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author: Valentin Esparza
+        Date: 8/30/2026
+        Purpose: Network Connection Test page — displays live host, port, protocol,
+                 and last launch timestamp to verify local server connectivity.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Test — The Gilded Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jsmain.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">THE GILDED PANEL</a>
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Network Connection Test</h1>
+            <p>This page verifies that the site is running correctly through a local development server.</p>
+
+            <table>
+                <caption>Connection Details</caption>
+                <tbody>
+                    <tr>
+                        <th scope="row">Local Host Name</th>
+                        <td id="hostInfo"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Communication Port</th>
+                        <td id="portInfo"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Transmission Protocol</th>
+                        <td id="protocolInfo"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last Time Launched</th>
+                        <td id="lastLaunch"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button id="refreshButton" class="btn">Refresh Connection Test</button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 The Gilded Panel &middot; <a href="about.html">About</a> &middot; 
+                href="about.html">Contact</a></p>
+    </footer>
+
+</body>
+
+</html>

@@ -58,13 +58,26 @@ document.body.appendChild(tooltip);
 /* =========================================
    RENDER PRODUCTS (shop.html)
 ========================================= */
-const productGrid = document.getElementById("productGrid");
-
-function renderProducts() {
+function renderProducts(categoryFilter = "all", conditionFilter = "all") {
     if (!productGrid) return;
     productGrid.innerHTML = "";
 
-    products.forEach(function (item) {
+    const filtered = products.filter(function (item) {
+        const categoryMatch = categoryFilter === "all" ||
+            item.category.toLowerCase().replace(" ", "-") === categoryFilter;
+
+        const conditionMatch = conditionFilter === "all" ||
+            item.condition.toLowerCase().includes(conditionFilter.replace("-", " "));
+
+        return categoryMatch && conditionMatch;
+    });
+
+    if (filtered.length === 0) {
+        productGrid.innerHTML = "<p>No items match the selected filters.</p>";
+        return;
+    }
+
+    filtered.forEach(function (item) {
         const stock = stockLevels[item.id];
         const outOfStock = stock <= 0;
 
@@ -103,6 +116,25 @@ function renderProducts() {
 }
 
 renderProducts();
+
+/* =========================================
+   FILTER DROPDOWNS (shop.html)
+========================================= */
+const categorySelect = document.getElementById("category");
+const conditionSelect = document.getElementById("condition");
+
+function applyFilters() {
+    const categoryValue = categorySelect ? categorySelect.value : "all";
+    const conditionValue = conditionSelect ? conditionSelect.value : "all";
+    renderProducts(categoryValue, conditionValue);
+}
+
+if (categorySelect) {
+    categorySelect.addEventListener("change", applyFilters);
+}
+if (conditionSelect) {
+    conditionSelect.addEventListener("change", applyFilters);
+}
 
 /* =========================================
    ADD TO CART (event delegation, works on shop.html and product.html)

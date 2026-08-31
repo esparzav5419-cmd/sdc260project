@@ -58,6 +58,8 @@ document.body.appendChild(tooltip);
 /* =========================================
    RENDER PRODUCTS (shop.html)
 ========================================= */
+const productGrid = document.getElementById("productGrid");
+
 function renderProducts(categoryFilter = "all", conditionFilter = "all") {
     if (!productGrid) return;
     productGrid.innerHTML = "";

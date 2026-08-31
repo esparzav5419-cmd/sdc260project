@@ -407,3 +407,50 @@ function applyCoupon() {
         discountResult.textContent = "Invalid coupon code.";
     }
 }
+
+/* =========================================
+   NETWORK CONNECTION TEST (network.html)
+========================================= */
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value};${expires};path=/`;
+}
+
+function getCookie(name) {
+    const cookieName = name + "=";
+    const cookieArray = document.cookie.split(";");
+    for (let cookie of cookieArray) {
+        cookie = cookie.trim();
+        if (cookie.indexOf(cookieName) === 0) {
+            return cookie.substring(cookieName.length);
+        }
+    }
+    return "";
+}
+
+const hostInfo = document.getElementById("hostInfo");
+const portInfo = document.getElementById("portInfo");
+const protocolInfo = document.getElementById("protocolInfo");
+const lastLaunch = document.getElementById("lastLaunch");
+const refreshButton = document.getElementById("refreshButton");
+
+if (hostInfo && portInfo && protocolInfo && lastLaunch) {
+    hostInfo.textContent = window.location.hostname || "N/A (opened as static file)";
+    portInfo.textContent = window.location.port || "Default";
+    protocolInfo.textContent = window.location.protocol.replace(":", "").toUpperCase();
+
+    const previousLaunch = getCookie("lastLaunch");
+    lastLaunch.textContent = previousLaunch || "No previous launch recorded.";
+
+    const now = new Date().toLocaleString();
+    setCookie("lastLaunch", now, 30);
+}
+
+if (refreshButton) {
+    refreshButton.addEventListener("click", function () {
+        location.reload();
+    });
+}
